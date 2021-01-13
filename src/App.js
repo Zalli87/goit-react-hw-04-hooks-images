@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import Loader from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -28,7 +28,7 @@ function App() {
             .then(images => {
                 if (images.hits.length === 0) {
                     return Promise.reject(
-                        new Error(`No images found on request ${imageQuery}`),
+                        toast(`No images found on request ${imageQuery}`),
                     );
                 }
                 setImages(state => [...state, ...images.hits]);
